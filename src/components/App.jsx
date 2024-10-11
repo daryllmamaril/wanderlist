@@ -8,7 +8,17 @@ import { initialItems } from "../lib/constants";
 
 function App() {
   const [items, setItems] = useState(initialItems);
-  console.log(items)
+  console.log(items);
+  
+  const handleAddItem = (newItemText) => {
+    const newItem = {
+      id: new Date().getTime(),
+      name: newItemText,
+      packed: false,
+    };
+    const newItems = [...items, newItem]
+    setItems(newItems);
+  }
 
   return (
     <>
@@ -16,7 +26,7 @@ function App() {
       <main>
         <Header />
         <ItemList items={items} />
-        <Sidebar setItems={setItems} />
+        <Sidebar handleAddItem={handleAddItem} />
       </main>
       <Footer />
     </>
