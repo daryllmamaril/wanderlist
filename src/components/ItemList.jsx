@@ -12,7 +12,7 @@ export default function ItemList({ items }) {
 function Item({ item }) {
   return (
     <li className="item">
-      <label><input type="checkbox"></input>{item.name}</label>
+      <label><input type="checkbox" checked={item.packed}></input>{item.name}</label>
       <button>❌</button>
     </li>
   )
