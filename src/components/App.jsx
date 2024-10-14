@@ -8,7 +8,6 @@ import { initialItems } from "../lib/constants";
 
 function App() {
   const [items, setItems] = useState(initialItems);
-  console.log(items);
 
   const handleAddItem = (newItemText) => {
     const newItem = {
@@ -61,7 +60,7 @@ function App() {
     <>
       <BackgroundHeading />
       <main>
-        <Header />
+        <Header numberOfItemsPacked={items.filter((item) => item.packed).length} totalNumberOfItems={items.length} />
         <ItemList
           handleDeleteItem={handleDeleteItem}
           handleToggleItem={handleToggleItem}
